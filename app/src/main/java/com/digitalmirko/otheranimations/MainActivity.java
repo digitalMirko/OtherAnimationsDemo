@@ -10,6 +10,8 @@ import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity {
 
+
+
     public void fade(View view) {
 
         Log.i("Info","Imageview clicked");
@@ -42,14 +44,24 @@ public class MainActivity extends AppCompatActivity {
 //        bartImageView.animate().scaleX(0.5f).scaleY(0.5f).setDuration(1000);
 
 
-
-
-
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // challenge: animate bart into existence
+        // start the app into a blank screen, bart spins into action from the left
+        // after the animation he should be full screen as originally
+
+        ImageView bartImageView = (ImageView) findViewById(R.id.bartImageView);
+
+//        bartImageView.animate().translationXBy(-1000);
+
+        bartImageView.setX(-1000);
+
+        // brings bart from left into view, rotates 10 times in 2 seconds
+        bartImageView.animate().translationXBy(1000).rotation(3600).setDuration(2000);
     }
 }
